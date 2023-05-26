@@ -162,3 +162,4 @@ cython_debug/
 
 # add file
 .DS_Store
+/dont_upload
