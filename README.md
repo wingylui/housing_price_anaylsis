@@ -17,6 +17,7 @@ This project investigates different suburbs housing price in Perth and trains an
 flowchart TD
     main(Data cleaning) --> db[(PySpark)]--> id3{{Machine Learning}} --> id4(Clustering) --> dv((Tableau))
     id3{{Machine Learning}} --> id5(Neural Netwok)
+    db[(PySpark)] --> dv((Tableau))
 ```
 
 ---
