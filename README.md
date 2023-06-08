@@ -3,7 +3,7 @@
 
 ## Project Summary
 
-This project investigates different suburbs housing price in Perth and trains an algorithm to predict housing price. This dataset had about 36,000 number of property sales in Perth and most of them are in between 2013 to 2020. The data in between 2013 to 2020 was extracted to train a new model using neural network. At the beginning, the accuracy of model is only about 55%. By adding number of nuerons and hidden layers, the model accuracy raise to about 65%. To further optimising this model, dataset were seperated into clusters and, at last, the accuracy of this model was increased to 67% and 65%.
+This project investigates different suburbs housing price in Perth and trains an algorithm to predict housing price. This dataset had about 36,000 number of property sales in Perth and most of them are in between 2013 to 2020. The data in between 2013 to 2020 was extracted to train a new model using neural network. At the beginning, the accuracy of model is only about 55%. To further optimising this model, dataset were seperated into clusters and, however, the accuracy of this model still low. At last, the accuracy of model increased to 81.7% after including additional information of coastal distance.
 
 
 ---
@@ -53,7 +53,7 @@ For data visulisation in Tableau: </br>
 <b>Script:</b> [optimisation_neural_network.ipynb](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/optimisation_neural_network.ipynb) </br>
 
 
-The major section of this project is to build up an optimised algorithm to predict the Perth house pricing. The rectified linear unit (ReLU) activation function is used in this neural network with 10 and 5 neurons in the first and second hidden layers. The accuracy is very low (55%). By increasing the numbers of neurons and hidden layers, the model accuracy incrased to 63%. To further increase the accuracy of this model, we tried to seperate the dataset into different clusters by using PCA clustering. Unfortunately, there is not a cluster that is distinct from the other cluster. Then, we also tried Kmeans clustering and obtained 3 major clusters from this dataset. Three different neural network models are trained using these clusters, however, only one of the three clusters have an increased accuracy (74%) and the others have a significantly drop in accuracy of the model. Lastly, we tried to combine the two clusters together and the accuracy of this model increased to 60%. 
+The major section of this project is to build up an optimised algorithm to predict the Perth house pricing. By using ```RandomSearchCV```, the best parameters for the model is obtained and the accuracy is 67.7%. To further increase the accuracy of this model, we tried to seperate the dataset into different clusters by using PCA clustering. Unfortunately, there is not a cluster that is distinct from the other cluster. Then, we also tried Kmeans clustering and obtained 3 major clusters from this dataset. Three different neural network models are trained using these clusters, however, only one of the three clusters have an increased accuracy (72%) and the others have a significantly drop in accuracy of the model. Then, we tried to combine the two clusters together and the accuracy of this model increased to 60%. Due to the low accuracy of the model, I try to extract more data for the dataframe, including the dwelling types (Apartments, units or houses) and coast distance. Finally, the model can reach 81.7% after adding 
 
 A short summary:</br>
 ```mermaid
@@ -61,8 +61,9 @@ flowchart LR
     des{{Neural Network}}
     des2([Unsupervised Machine Learing - Clustering])
 
-    n{{Full datase}} --> o{{optimise number of neurons and hidden layers}} --> c1([PCA clustering]) --> X
-    o{{optimise number of neurons and hidden layers}} --> c2([KMeans clustering])--> n2{{Each cluster}} --> n3{{Grouping clusters}}
+    n{{Full datase}} --> o{{RandomSearchCV}} --> c1([PCA clustering]) --> X
+    o{{RandomSearchCV}} --> c2([KMeans clustering])--> n2{{Each cluster}} --> n3{{Grouping clusters}}
+    n4{{adding column for coast distance}} --> o2{{RandomSearchCV}} --> c3([KMeans clustering])--> n5{{Each cluster}} --> n6{{Grouping clusters}}
   
 ```
 
