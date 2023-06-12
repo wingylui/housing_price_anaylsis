@@ -3,7 +3,7 @@
 
 ## Project Summary
 
-This project investigates different suburbs housing price in Perth and trains an algorithm to predict housing price. This dataset had about 36,000 number of property sales in Perth and most of them are in between 2013 to 2020. The data in between 2013 to 2020 was extracted to train a new model using neural network. At the beginning, the accuracy of model is only about 55%. To further optimising this model, dataset were seperated into clusters and, however, the accuracy of this model still low. At last, the accuracy of model increased to 81.7% after including additional information of coastal distance.
+This project investigates different suburbs housing price in Perth and trains an algorithm to predict housing price. This dataset had about 36,000 number of property sales in Perth and most of them are in between 2013 to 2020. The data in between 2013 to 2020 was extracted to train a new model using neural network. At the beginning, the accuracy of model is only about 67.9%. To further optimising this model, dataset were seperated into clusters and, however, the accuracy of this model still low. At last, the accuracy of model increased to 81.6% after including additional information of coastal distance.
 
 
 ---
@@ -52,9 +52,6 @@ For data visulisation in Tableau: </br>
 <b>Programming language and package used:</b> Python (sklearn, pandas and numpy)</br>
 <b>Script:</b> [optimisation_neural_network.ipynb](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/optimisation_neural_network.ipynb) </br>
 
-
-The major section of this project is to build up an optimised algorithm to predict the Perth house pricing. By using ```RandomSearchCV```, the best parameters for the model is obtained and the accuracy is 67.7%. To further increase the accuracy of this model, we tried to seperate the dataset into different clusters by using PCA clustering. Unfortunately, there is not a cluster that is distinct from the other cluster. Then, we also tried Kmeans clustering and obtained 3 major clusters from this dataset. Three different neural network models are trained using these clusters, however, only one of the three clusters have an increased accuracy (72%) and the others have a significantly drop in accuracy of the model. Then, we tried to combine the two clusters together and the accuracy of this model increased to 60%. Due to the low accuracy of the model, I try to extract more data for the dataframe, including the dwelling types (Apartments, units or houses) and coast distance. Finally, the model can reach 81.7% after adding 
-
 A short summary:</br>
 ```mermaid
 flowchart LR
@@ -66,6 +63,15 @@ flowchart LR
     n4{{adding column for coast distance}} --> o2{{RandomSearchCV}} --> c3([KMeans clustering])--> n5{{Each cluster}} --> n6{{Grouping clusters}}
   
 ```
+
+The major section of this project is to build up an optimised algorithm to predict the Perth house pricing. By using ```RandomSearchCV```, the best parameters for the model is obtained and the accuracy is 67.9%.</br>
+![initial](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/output/Initial.png)</br>
+ To further increase the accuracy of this model, we tried to seperate the dataset into different clusters by using PCA clustering. Unfortunately, there is not a cluster that is distinct from the other cluster. Then, we also tried Kmeans clustering and obtained 3 major clusters from this dataset. Three different neural network models are trained using these clusters, however, only one of the three clusters have an increased accuracy (72.9%) and the others have a significantly drop in accuracy of the model. </br>
+ ![cluster0](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/output/cluster_0.png)</br>
+ Then, we tried to combine the two clusters together and the accuracy of this model increased to 60.0%. </br>
+  ![cluster1_2](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/output/cluster1_2.png)</br>
+ Due to the low accuracy of the model, I try to extract more data for the dataframe, including the dwelling types (Apartments, units or houses) and coast distance. Finally, the model can reach 81.6% after adding coast distance and apartment columns.</br>
+ ![add_column](https://github.com/wingylui/housing_price_anaylsis/blob/main/MachineLearning/output/add_columns.png)</br>
 
 
 ---
